@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Site Icons -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <title>Acesso Restrito - Casamento Lucas & Ilana</title>
+    <link rel="stylesheet" href="css/styletwo.css"> 
+</head>
+<body>
+
+    <main>
+
+        <div class="row">
+            
+            <div class="colm-logo">
+                <img src="images/logo_casa_login.png" alt="Logo">
+                <h2>Acesse a área restrita para acessar a lista de presentes .</h2>
+            </div>
+            
+            <div class="colm-form">
+                
+                <form method="post" action="/authenticate">
+                    <div class="form-container">
+                        <select name="parentesco" required data-error="Por favor selecione um item da lista.">
+                        <option disabled>Você é: CODPALUEI | CONVLEI *</option>
+                            <option value="Padrinho">Padrinho</option>
+                            <option value="Convidado">Convidado</option>
+                        </select>
+                        <input name="codigo" type="text" placeholder="Código de Acesso" required>
+                        <input name="nome" type="text" placeholder="Digite seu nome" required>
+                        <input name="telefone" type="text" class="telefone" placeholder="Digite seu telefone / Whatsapp" required>
+                        <button class="btn-login" type="submit">Acessar</button>
+                        <button class="btn-new">Esqueci o código</button>
+                    </div>
+                    <p><a href="/"><b>Voltar</b></a> para página inicial.</p>
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script>
+        jQuery("input.telefone")
+        .mask("(99) 99999-999?9")
+        .focusout(function (event) {  
+            var target, phone, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            phone = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(phone.length > 10) {  
+                element.mask("(99) 99999-999?9");  
+            } else {  
+                element.mask("(99) 9999-9999?9");  
+            }  
+        });
+    </script>
+</body>
+</html>

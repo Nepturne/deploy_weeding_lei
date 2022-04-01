@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+  	<title>Painel Administrativo - Casamento L&I</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Site Icons -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="admin/css/style.css">
+    
+    
+	</head>
+	<body>
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
+			<nav id="colorlib-main-menu" role="navigation">
+        <img src="images/logouser.png" style="width:85px; height:85px;" alt="logo">
+        <br/>
+				<ul>
+					<li><a href="/gerencia">Dados</a></li>
+					<li class="colorlib-active"><a href="/contribuintes">Contribuintes</a></li>
+					<li><a href="/cadastrarpresente">Novo Presente</a></li>
+					<li><a href="/verpresente">Ver Presentes</a></li>
+					<li><a href="/novopadrinho">Novo Padrinho</a></li>
+          <li><a href="/novoconvidado">Novo Convidado</a></li>
+					<li><a href="/gerencialitl">Sair</a></li>
+				</ul>
+			</nav>
+		</aside> <!-- END COLORLIB-ASIDE -->
+
+		<div id="colorlib-main">
+			<section class="ftco-section pt-4 mb-5 ftco-intro">
+				<div class="container-fluid px-3 px-md-0">
+					<div class="row">
+						<div class="col-md-12 mb-4" style=" color: white; background-color: rgb(43, 144, 226);">
+							<h1 class="h2" style="color: white;">Contribuintes Lista-Presentes:</h1>
+							<p>Soma do valor arrecadado , com as formas de pagamento em pix ou dinheiro físico.</p>
+						</div>
+
+						<div class="col-md-12" style="background:rgb(170, 170, 170); border-radius: 20px; height: 100%;">
+							<h2 class="h4" style="color: white;">Tabela de Contribuintes</h2>
+							<table class="table align-middle mb-0 bg-white">
+                                <thead class="bg-light">
+                                  <tr>
+                                    <th>Nome</th>
+                                    <th>Produto</th>
+                                    <th>Status</th>
+                                    <th>Tipo</th>
+                                    <th>Depósito</th>
+                                    <th>Whats/Contato</th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+
+                                  <% contribuintes.forEach(contribuinte => { %>
+                                  <tr>
+                                    <td>
+                                      <div class="d-flex align-items-center">
+                                        <img
+                                            src="images/logouser.png" 
+                                            alt=""
+                                            style="width: 45px; height: 45px"
+                                            class="rounded-circle"
+                                            />
+                                        <div class="ms-3">
+                                          <p class="fw-bold mb-1"><%= contribuinte.nome_contrib %></p>
+                                          <p class="text-muted mb-0"><%= contribuinte.codigo_acesso %></p>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <p class="fw-normal mb-1"><%= contribuinte.nome_produto %></p>
+                                      <p class="text-muted mb-0">R$ xxx </p>
+                                    </td>
+                                    <td>
+                                      <span class="badge badge-success rounded-pill d-inline">Pago</span>
+                                    </td>
+                                    <td>Pix</td>
+                                    <td>
+                                      R$ <%= contribuinte.valor_contrib %>
+                                    </td>
+                                    <td>
+                                      <%= contribuinte.telefone %>
+                                    </td>
+                                  </tr>
+                                  <% }) %>
+
+                                </tbody>
+                              </table>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</div><!-- END COLORLIB-MAIN -->
+	</div><!-- END COLORLIB-PAGE -->
+
+	</section>
+
+  <script src="admin/js/jquery.min.js"></script>
+  <script src="admin/js/popper.js"></script>
+  <script src="admin/js/bootstrap.min.js"></script>
+  <script src="admin/js/main.js"></script>
+
+	</body>
+</html>
+

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes - Lucas & Ilana</title>
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styleapply.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="container">
+
+            <div class="main-title">
+                <div>                      
+                    <a href="/listadepresentes"><img class="dropdown" src="images/logouser.png" style="width:45px; height:45px;" alt="logo"></a>
+                </div>
+                <a href="/logout"><img src="images/exit.png" style="width:45px; height:45px; position:absolute; top:15px; left: 175px; cursor:pointer;"  alt=""></a>
+                <h3 style="display: none;">Tipo de Convite: Convidado</h3>
+                <h3>Seja bem vindo a nossa lista de presentes, <%= nome %> !</h3>
+                <h1 style="color:rgb(194, 46, 46); ">Lista de Presentes - L&I <i class="fa fa-heart-o"
+                        aria-hidden="true"></i></h1>
+            </div> </hr>
+           
+            <div class="display-style-btns">
+                <select name="parentesco" class="form-control" required
+                    data-error="Por favor selecione um item da lista.">
+                    <option disabled selected>Filtrar Presentes</option>
+                    <option value="Todos">Todos</option>
+                    <option value="Presentes Disponíveis">Presentes Disponíveis</option>
+                    <option value="Presentes Finalizados">Presentes Finalizados</option>
+                </select>
+
+                <button type="button" id="grid-active-btn">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button type="button" id="details-active-btn">
+
+                    <i class="fas fa-list-ul"></i>
+                </button>
+            </div>
+
+            <div class="item-list grid-active">
+
+                <!-- ------------------------------------------------------- -->
+                <% presentes.forEach(presente => { %>
+                <div class="item">
+                    <div class="item-img">
+
+                        <img src="<%= presente.imagem %>">
+                        <div class="icon-list">
+
+                            <button type="button" id="modal_cart<%= presente.id %>">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="item-detail">
+                        <a href="#" class="item-name"><%= presente.nome_produto %></h2></a>
+                        <div class="item-price">
+                            <span class="new-price"><%= presente.valor_produto %>,00 R$</span>
+                            <span class="old-price"><%= presente.valor_traco %>,00 R$</span><br />
+                            <span class="rest-price">Falta: <%= presente.falta %>,00 R$</span>
+                        </div>
+                        <p><%= presente.descricao %></p>
+                        <!--<a href="/payment/user"><button type = "button" class = "add-btn">Selecionar</button></a>-->
+                    </div>
+                </div>
+                <% }) %>
+                
+
+                 <div class="item">
+                    <div class="item-img">
+
+                        <img src="/images/listadepresentes/doacao.png">
+                        <div class="icon-list">
+                            <button type="button" id="modal_cart_doacao">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="item-detail">
+                        <a href="#" class="item-name">Doação Avulsa</a>
+                        <div class="item-price">
+                            <span class="new-price">Doação L&I</span>
+                            <span class="rest-price">O valor que quiser</span>
+                        </div>
+                        <p>O valor que quiser doar ficamos agredecidos</p>
+        
+                    </div>
+
+                </div>
+                <!-- ------------------------------------------------------- -->
+              
+                <% presentes.forEach(presente => { %>
+                <!-- MODAL PAGAMENTO ================================================================================================================== -->
+                <div id="myModal<%= presente.id %>" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="color:rgb(194, 46, 46); "><p><i class="fa fa-heart-o"
+                                    aria-hidden="true"></i> Você faz parte dessa história!<br><text style="font-size: small;">Por favor após efetuar o pagamento clique em salvar contribuição.</text><br> <text style="font-size: small;">É possível pagar o valor inteiro ou metade do valor do presente</text> </p></h5>
+                               
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <form action="/processarPagamento" method="post">
+                                <div class="modal-body">
+
+                                    <div class="modal-body">
+
+                                        <div class="tabs mt-3">
+                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                <li class="nav-item" role="presentation"> <a class="nav-link active"
+                                                        id="visa-tab" data-toggle="tab" href="#visa" role="tab"
+                                                        aria-controls="visa" aria-selected="true">
+                                                        <img src="images/formpag/pix.png" width="25px" height="70px"> </a>
+                                                </li>
+                                                <li class="nav-item" role="presentation"> <a class="nav-link"
+                                                        id="paypal-tab" data-toggle="tab" href="#paypal" role="tab"
+                                                        aria-controls="paypal" aria-selected="false"> <img
+                                                            src="images/formpag/dinero.png" width="25px" height="70px"> </a>
+                                                </li>
+                                            </ul>
+                                            
+                                            <div class="tab-content" id="myTabContent">
+                                                
+                                                
+                                                <div class="tab-pane fade show active" id="visa" role="tabpanel"
+                                                    aria-labelledby="visa-tab">
+                                                    <div class="mt-4 mx-4">
+                                                        <div class="text-center">
+                                                            <h5>Depósito Pix</h5>
+                                                        </div>
+
+                                                        <div class="form mt-3">
+                                                            <span>Chave Pix [ Ilana Grazielle Silva Barbosa ]</span>
+                                                            <div class="inputbox">
+                                                                <input type="text" name="name" class="form-control"
+                                                                    required="required" value="118.271.454.47">
+                                                                <!-- nome parente -->
+                                                                <input type="text" style="display: none" name="nome_parente" value="<%= nome %>">
+                                                                <!-- grau parente -->
+                                                                <input type="text" style="display: none" name="grau_parente" value="<%= grau %>">
+                                                                <!-- Nome do produto -->
+                                                                <input type="text" style="display: none" name="nome_produto_applied" value="<%= presente.nome_produto  %>">
+                                                                <!-- Valor da doação ta na line 163 com o name depositoPix-->
+                                                                <input type="text" style="display: none" name="telefone" value="<%= tel  %>">
+
+                                                            </div>
+                                                            <span>Valor a doar: [Presente: <%= presente.nome_produto %>]</span>
+                                                            <div class="inputbox">
+                                                                <input type="text" required="required" id="dinheiro"
+                                                                    onkeyup="habilitaPag<%= presente.id %>()" name="depositoPix" class="dinheiro form-control"
+                                                                    style="display:inline-block" />
+                                                                <input type="text" name="id_presente" value="<%= presente.id %>" style="color: #fff; border-color: #fff; position: relative; top: 10px; z-index: -1;outline: none; box-shadow: 0 0 0 0; outline: 0;">
+                                                            </div>
+
+                                                            <div class="px-5 pay"> <a
+                                                                    href="https://nubank.com.br/pagar/lrwkh/znairXqY0F"
+                                                                    target="_blank" onClick="alerta()"> <button disabled id="pag_button<%= presente.id %>"
+                                                                        class="btn btn-info btn-block">Pagar</button></a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="tab-pane fade" style="position: relative; bottom:30px;"
+                                                    id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+
+                                                    <div class="px-5 mt-5">
+                                                        <div class="text-center">
+                                                            <h5>Boleto</h5>
+                                                        </div>
+
+                                                        <div class="inputbox">
+                                                            <input type="text"  id="dinheiro"
+                                                                name="dinheiro" class="dinheiro form-control"
+                                                                style="display:inline-block" />
+                                                            <span>Valor em dinheiro</span>
+                                                        </div>
+
+                                                        <div class="pay px-5">
+                                                            <button id="ger_bol<%= presente.id %>" class="btn btn-info btn-block">Gerar
+                                                                Boleto</button>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <select name="valor_para_abater" class="form-control" required
+                                        data-error="Por favor selecione um item da lista.">
+                                        <option selected disabled>Resta: <%= presente.falta %> R$</option>
+                                        <option value="Lucas">Lucas - 82 99648-3649</option>
+                                        <option value="Ilana">Ilana - 82 99963-0980</option>
+                                    </select>
+                                    <button type="submit" id="descontar1<%= presente.id %>" disabled class="btn btn-success">Salvar
+                                        Contribuição <i class="fa fa-money" aria-hidden="true"></i></button>
+                                    <button type="button" class="btn btn-info" id="modal_qr<%= presente.id %>">QRCode <i class="fas fa-qrcode" aria-hidden="true"></i></button>
+                                
+                                </div>
+                        </form><!-- FIM DO FORM -->
+
+
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+
+                <% presentes.forEach(presente => { %>
+                <!-- MODAL QRCODe ================================================== -->
+                <div id="myModalQR<%= presente.id %>" style="background-color: blueviolet;" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><p><i class="fas fa-qrcode" aria-hidden="true"></i> QRCode - <b>Valor: <%= presente.valor_produto %>,00 R$</b> <br><text style="font-size: small;">Por favor após efetuar o pagamento clique em salvar contribuição.</text><br> <text style="font-size: small;">É possível pagar o valor inteiro ou metade do valor do presente</text> </p></h5>
+
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <img src="images/qrcode.png" alt="QRCode Pagamento">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="text" id="valoradoarqr" class="form-control" placeholder="Sua doação"></input>
+                                <select name="parentesco" style="cursor:pointer;" class="form-control" required
+                                    data-error="Por favor selecione um item da lista.">
+                                    <option selected disabled>Whatsapp:</option>
+                                    <option value="Lucas">Lucas - 82 99648-3649</option>
+                                    <option value="Ilana">Ilana - 82 99963-0980</option>
+                                </select>
+                                <button type="button" id="descontar2<%= presente.id %>"  class="btn btn-info">Salvar Contribuição <i class="fa fa-money" aria-hidden="true"></i></button>
+                                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar <i class="fa fa-times" aria-hidden="true"></i></button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM MODAL QRCODE -->
+                <% }) %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- Doação MODAL -->
+                <!-- MODAL PAGAMENTO ================================================================================================================== -->
+                <div id="myModalDoacao" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="color:rgb(194, 46, 46); "><p><i class="fa fa-heart-o"
+                                    aria-hidden="true"></i> Você faz parte dessa história!<br><text style="font-size: small;">Por favor após efetuar o pagamento clique em salvar contribuição.</text><br> <text style="font-size: small;">É possível pagar o valor inteiro ou metade do valor do presente</text> </p></h5>
+                               
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="modal-body">
+
+                                    <div class="tabs mt-3">
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation"> <a class="nav-link active"
+                                                    id="visa-tab" data-toggle="tab" href="#visa" role="tab"
+                                                    aria-controls="visa" aria-selected="true">
+                                                    <img src="images/formpag/pix.png" width="25px" height="70px"> </a>
+                                            </li>
+                                            <li class="nav-item" role="presentation"> <a class="nav-link"
+                                                    id="paypal-tab" data-toggle="tab" href="#paypal" role="tab"
+                                                    aria-controls="paypal" aria-selected="false"> <img
+                                                        src="images/formpag/dinero.png" width="25px" height="70px"> </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+
+                                            <div class="tab-pane fade show active" id="visa" role="tabpanel"
+                                                aria-labelledby="visa-tab">
+                                                <div class="mt-4 mx-4">
+                                                    <div class="text-center">
+                                                        <h5>Depósito Pix</h5>
+                                                    </div>
+
+                                                    <div class="form mt-3">
+                                                        <span>Chave Pix [ Ilana Grazielle Silva Barbosa ]</span>
+                                                        <div class="inputbox">
+                                                            <input type="text" name="name" class="form-control"
+                                                                required="required" value="118.271.454.47">
+                                                        </div>
+                                                        <span>Valor a doar: [Presente: Valor a doar</span>
+                                                        <div class="inputbox">
+                                                            <input type="text" required="required" id="dinheiroCampo"
+                                                                name="dinheiro" class="dinheiro form-control"
+                                                                style="display:inline-block" />
+                                                        </div>
+
+                                                        <div class="px-5 pay"> <a
+                                                                href="https://nubank.com.br/pagar/lrwkh/znairXqY0F"
+                                                                target="_blank"><button  id="pag_button"
+                                                                    class="btn btn-info btn-block">Pagar</button></a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane fade" style="position: relative; bottom:30px;"
+                                                id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+
+                                                <div class="px-5 mt-5">
+                                                    <div class="text-center">
+                                                        <h5>Boleto</h5>
+                                                    </div>
+
+                                                    <div class="inputbox">
+                                                        <input type="text" required="required" id="dinheiro"
+                                                            name="dinheiro" class="dinheiro form-control"
+                                                            style="display:inline-block" />
+                                                        <span>Valor em dinheiro</span>
+                                                    </div>
+
+                                                    <div class="pay px-5">
+                                                        <button id="ger_bol" class="btn btn-info btn-block">Gerar
+                                                            Boleto</button>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <select name="parentesco" class="form-control" required
+                                    data-error="Por favor selecione um item da lista.">
+                                    <option selected>Valor a doar:  R$</option>
+                                    <option value="Lucas">Lucas - 82 99648-3649</option>
+                                    <option value="Ilana">Ilana - 82 99963-0980</option>
+                                </select>
+                                <button type="button" id="descontar1" class="btn btn-success">Salvar
+                                    Contribuição <i class="fa fa-money" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-info" id="modal_qr">QRCode <i class="fas fa-qrcode" aria-hidden="true"></i></button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM Doação MODAL-->   
+                
+                
+
+
+
+
+
+
+
+
+
+
+                <!-- MODAL QRCODe ================================================== -->
+                <div id="myModalQRDoacao" style="background-color: blueviolet;" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><p><i class="fas fa-qrcode" aria-hidden="true"></i> QRCode - <b>Valor: DOAÇÃO,00 R$</b> <br><text style="font-size: small;">Por favor após efetuar o pagamento clique em salvar contribuição.</text><br> <text style="font-size: small;">É possível pagar o valor inteiro ou metade do valor do presente</text> </p></h5>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <img src="images/qrcode.png" alt="QRCode Pagamento">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="text" id="valoradoarqr" class="form-control" placeholder="Sua doação"></input>
+                                <select name="parentesco" style="cursor:pointer;" class="form-control" required
+                                    data-error="Por favor selecione um item da lista.">
+                                    <option selected disabled>Whatsapp:</option>
+                                    <option value="Lucas">Lucas - 82 99648-3649</option>
+                                    <option value="Ilana">Ilana - 82 99963-0980</option>
+                                </select>
+                                <button type="button" id="descontar2"  class="btn btn-info">Salvar Contribuição <i class="fa fa-money" aria-hidden="true"></i></button>
+                                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar <i class="fa fa-times" aria-hidden="true"></i></button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM MODAL QRCODE ========================================================================================================================= -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+
+    <script>
+        function alerta() {
+            alert("Após efetuar o pagamento volte para Salvar a contribuição.")
+            window.open('https://nubank.com.br/pagar/lrwkh/znairXqY0F', '_blank');
+        }
+        // Máscara para dinheiro
+        // Liberar botão de botar dinheiro
+        
+        // <% presentes.forEach(presente => { %>
+        function habilitaPag<%= presente.id %>(){
+            var epatz = document.getElementById("pag_button<%= presente.id %>");
+
+                epatz.disabled = false;
+        } 
+        // <% }) %>
+        
+
+        
+        //===================================================================================
+        $('.dinheiro').mask('#.##0.00', { reverse: true });
+        $('#valoradoarqr').mask('#.##0.00', { reverse: true });
+        //===================================================================================
+        // Modal Padrão ->
+        // <% presentes.forEach(presente => { %>
+        function abreModal<%= presente.id %>() {
+            $("#myModal<%= presente.id %>").modal({
+                show: true
+            });
+        }
+
+        var el<%= presente.id %> = document.getElementById("modal_cart<%= presente.id %>");
+        el<%= presente.id %>.addEventListener("click", function () {
+            abreModal<%= presente.id %>();
+        }, false);
+        // <% }) %>
+
+        //===================================================================================
+        // Modal QRCode ->
+        // <% presentes.forEach(presente => { %>
+        function abreModalQr() {
+            
+            $("#myModalQR<%= presente.id %>").modal({
+                show: true
+            });
+        }
+
+        var elss<%= presente.id %> = document.getElementById("modal_qr<%= presente.id %>");
+        elss<%= presente.id %>.addEventListener("click", function () {
+            abreModalQr();
+        }, false);
+        // <% }) %>
+        //===================================================================================
+        // Lógica de Pagamento 
+        // <% presentes.forEach(presente => { %>
+        var buttonQR<%= presente.id %> = document.getElementById("modal_qr<%= presente.id %>");
+        var pagButton<%= presente.id %> = document.getElementById("pag_button<%= presente.id %>");
+        var gerBolButton<%= presente.id %> = document.getElementById("ger_bol<%= presente.id %>");
+        // Botões ============================================================================
+        var buttonAbaterUm<%= presente.id %> = document.getElementById("descontar1<%= presente.id %>");
+        var buttonAbaterDois<%= presente.id %> = document.getElementById("descontar2<%= presente.id %>");
+        // Lógica Salvar Pagamento ===========================================================
+        // Habilitar Salvar Pagamento - para Salvar no banco o pagamento e descontar do valor
+        // do produto:
+        buttonQR<%= presente.id %>.addEventListener("click", function () {
+            buttonAbaterDois<%= presente.id %>.disabled = false;
+        }, false);
+
+        pagButton<%= presente.id %>.addEventListener("click", function () {
+            buttonAbaterUm<%= presente.id %>.disabled = false;
+        }, false);
+
+        gerBolButton<%= presente.id %>.addEventListener("click", function () {
+            buttonAbaterUm<%= presente.id %>.disabled = false;
+        }, false);
+        // <% }) %>
+        // Botões ============================================================================
+        
+        // Doação ============================================================================
+        function abreModalDoacao() {
+            $("#myModalDoacao").modal({
+                show: true
+            });
+        }
+        var elza = document.getElementById("modal_cart_doacao");
+        elza.addEventListener("click", function () {
+            abreModalDoacao();
+        }, false);
+        //====================================================================================
+        // Modal QRCode ->
+        function abreModalQr() {
+            $("#myModalQRDoacao").modal({
+                show: true
+            });
+        }
+
+        var elss = document.getElementById("modal_qr");
+        elss.addEventListener("click", function () {
+            abreModalQr();
+        }, false);
+        //====================================================================================
+    </script>
+
+</body>
+
+</html>

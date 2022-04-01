@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+  	<title>Painel Administrativo - Casamento L&I</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Site Icons -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="admin/css/style.css">
+
+	</head>
+	<body>
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
+			<nav id="colorlib-main-menu" role="navigation">
+				<img src="images/logouser.png" style="width:85px; height:85px;" alt="logo">
+				<br/>
+				<ul>
+					<li class="colorlib-active"><a href="/gerencia">Dados</a></li>
+					<li><a href="/contribuintes">Contribuintes</a></li>
+					<li><a href="/cadastrarpresente">Novo Presente</a></li>
+					<li><a href="/verpresente">Ver Presentes</a></li>
+					<li><a href="/novopadrinho">Novo Padrinho</a></li>
+                  	<li><a href="/novoconvidado">Novo Convidado</a></li>
+					<li><a href="/gerencialitl">Sair</a></li>
+				</ul>
+			</nav>
+		</aside> <!-- END COLORLIB-ASIDE -->
+
+		<div id="colorlib-main">
+			<section class="ftco-section pt-4 mb-5 ftco-intro">
+				<div class="container-fluid px-3 px-md-0">
+					<div class="row">
+		
+						<div class="col-md-12 mb-4" style=" color: white; background-color: #8a2be2;">
+							<h1 class="h2" style="color: white;">Valor em Caixa: <%= caixa %> R$</h1>
+							<p>Soma do valor arrecadado , com as formas de pagamento em pix ou dinheiro físico.</p>
+						</div>
+
+						<div class="col-md-6" style="background-color: blue; color: white; border-radius: 24px;" >
+							<h2 class="h4" style="color: white;">Valor em Pix</h2>
+							<p>Os valores em Pix serão depositados na conta pix Nubank Ilana Grazielle Silva Barbosa na chave pix: 118.271.454-47 ou na chave 108.685.974-06 ( Lucas Cabral )</p>
+						</div>
+						<div class="col-md-6" style="background-color: rgb(26, 190, 11); position: relative; left: 10px; color: white; border-radius: 24px;">
+							<h2 class="h4" style="color: white;">Valor em Dinheiro (Físico )</h2>
+							<p>Os valores em dinheiro serão entregues a um dos dois em um dia marcado para recebimento pelos dois.</p>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</div><!-- END COLORLIB-MAIN -->
+	</div><!-- END COLORLIB-PAGE -->
+
+	</section>
+
+  <script src="admin/js/jquery.min.js"></script>
+  <script src="admin/js/popper.js"></script>
+  <script src="admin/js/bootstrap.min.js"></script>
+  <script src="admin/js/main.js"></script>
+
+	</body>
+</html>
+

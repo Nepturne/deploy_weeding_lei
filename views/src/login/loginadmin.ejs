@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Site Icons -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <title>Acesso Restrito - Casamento Lucas & Ilana</title>
+    <link rel="stylesheet" href="css/styletwo.css"> 
+</head>
+<body>
+
+    <main>
+
+        <div class="row">
+            
+            <div class="colm-logo">
+                <img src="images/logo_casa_login.png" alt="Logo">
+                <h2>Acesse a área restrita para acessar a página administrativa</h2>
+            </div>
+            
+            <div class="colm-form">
+                
+                <form method="post" action="/authenticateadmin">
+                    <div class="form-container">
+                        <input name="login" type="text" placeholder="Login">
+                        <input name="pass" type="password" placeholder="Password">
+                        <button class="btn-login" type="submit">Acessar</button>
+                    </div>
+                    <p><a href="/"><b>Voltar</b></a> para página inicial.</p>
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
