@@ -215,7 +215,7 @@ app.post("/processarPagamento",(req,res) => {
 //=======================================================================
 
 // Área Administrativa -> Vermos as doações 
-app.get("/gerencialitl" ,(req,res) => {
+app.get("/gerencialogin" ,(req,res) => {
   res.render('src/login/loginadmin.ejs');
 });
 
@@ -286,8 +286,8 @@ app.get("/cadastrarpresente" ,(req,res) => {
 app.post("/processarPresente", upload.single('imagem_product') , (req,res) =>{
   //------------------------------------------
   var nome_product    = req.body.nome_product;
-  var valor_produto   = req.body.valor_produto;
-  var valor_traco     = req.body.valor_traco;
+  var valor_produto   = req.body.valor_produto; 
+ 
   var status_produto  = req.body.status_produto;
   var descricao       = req.body.descricao;
   
@@ -299,7 +299,6 @@ app.post("/processarPresente", upload.single('imagem_product') , (req,res) =>{
   Presente.create({
     nome_produto: nome_product,
     valor_produto: valor_produto,
-    valor_traco: valor_traco,
     status_produto: status_produto,
     falta: valor_produto,
     descricao: descricao,
@@ -325,7 +324,9 @@ app.get("/verpresente", (req,res) => {
 app.get("/listadepresentes" ,(req,res) => {
   var tel = req.session.geral.tel;
 
-  Presente.findAll().then((presentes) => {
+  Presente.findAll({
+    where: { status_produto: "Em pagamento" }
+  }).then((presentes) => {
     res.render('src/lista/index.ejs', { presentes: presentes , tel: tel});
   });
 

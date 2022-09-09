@@ -7,11 +7,13 @@
     <!-- Site Icons -->
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-    <title>Acesso Restrito - Casamento Lucas & Ilana</title>
+    
+    <title>Lucas e Ilana - Lista de Presentes</title>
     <link rel="stylesheet" href="css/styletwo.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
+
 
     <main>
 
@@ -19,23 +21,23 @@
             
             <div class="colm-logo">
                 <img src="images/logo_casa_login.png" alt="Logo">
-                <h2>Acesse a área restrita para acessar a lista de presentes .</h2>
+                <h2>Lista de presentes - Lucas e Ilana</h2>
             </div>
             
             <div class="colm-form">
                 
                 <form method="post" action="/authenticate">
                     <div class="form-container">
-                        <select name="parentesco" required data-error="Por favor selecione um item da lista.">
-                        <option disabled>Você é: CODPALUEI | CONVLEI *</option>
-                            <option value="Padrinho">Padrinho</option>
+                        <select type="hidden" name="parentesco" id="tipoUser" required data-error="Por favor selecione um item da lista.">
+                            <option disabled>Você é:</option>
                             <option value="Convidado">Convidado</option>
+                            <option value="Padrinho">Padrinho</option>
                         </select>
-                        <input name="codigo" type="text" placeholder="Código de Acesso" required>
-                        <input name="nome" type="text" placeholder="Digite seu nome" required>
+                        <input name="codigo" type="hidden" placeholder="Código de Acesso" id="tipoApply" value="CONVLEI" required>
+                        <input name="nome" type="text" placeholder="Digite seu nome" autocomplete="off" required>
                         <input name="telefone" type="text" class="telefone" placeholder="Digite seu telefone / Whatsapp" required>
                         <button class="btn-login" type="submit">Acessar</button>
-                        <button class="btn-new">Esqueci o código</button>
+                        <!--<button class="btn-new">Esqueci o código</button>-->
                     </div>
                     <p><a href="/"><b>Voltar</b></a> para página inicial.</p>
                 </form>
@@ -62,6 +64,18 @@
                 element.mask("(99) 9999-9999?9");  
             }  
         });
+
+    $('#tipoUser').change(function() {
+        var option = $('#tipoUser').find(":selected").text();
+        if( option == "Padrinho")
+        {
+            $("#tipoApply").val('CODPALUEI');
+        }
+        else if ( option == "Convidado")
+        {
+            $("#tipoApply").val('CONVLEI');
+        }
+    });
     </script>
 </body>
 </html>

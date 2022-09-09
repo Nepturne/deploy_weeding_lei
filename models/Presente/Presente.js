@@ -14,11 +14,7 @@ const Presente = connection.define("presente", {
     allowNull: false,
   },
   valor_produto: {
-    type: Sequelize.DOUBLE,
-    allowNull: false,
-  },
-  valor_traco: {
-    type: Sequelize.DOUBLE,
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
   descricao: {
@@ -31,7 +27,7 @@ const Presente = connection.define("presente", {
     allowNull: false,
   },
   falta: {
-    type: Sequelize.DOUBLE,
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
   imagem: {

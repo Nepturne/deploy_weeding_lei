@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- Site Metas -->
-	<title>Casamento Lucas & Ilana - Venha fazer parte deste momento</title>
+	<title>Lucas e Ilana - Site dos Noivos | Compartilhe conosco este momento</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -31,8 +31,12 @@
 
 </head>
 
-<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+<style>
+	#musica { display: none }
+</style>
 
+<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98" onclick="play()">
+	<audio id="audioCasamentoLucaseIlana" src="./musica/Elesseamam.mp3" autoplay loop>  <p>Seu navegador não suporta o elemento audio </p> </audio> 
 	<!-- LOADER -->
 	<div id="preloader">
 		<div class="preloader pulse">
@@ -55,16 +59,25 @@
 				<div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
 					<ul class="navbar-nav">
 						<li><a class="nav-link active" href="#home">Início</a></li>
-						<li><a class="nav-link" href="#about">Sobre nós</a></li>
+						<li><a class="nav-link" href="#about">Nós</a></li>
 						<li><a class="nav-link" href="#story">História</a></li>
 						<li><a class="nav-link" href="#gallery">Galeria</a></li>
-						<li><a class="nav-link" href="#contact">Contato</a></li>
-						<li><a class="nav-link" href="#wedding">Convidados</a></li>
-						<li><a href="/gerencialitl" target="_blank" class="nav-link" href="#story">Gerência</a></li>
+						<li><a class="nav-link" href="#horario">Horário</a></li>
+						<li><a class="nav-link" href="#wedding">Localização</a></li>
+						<li><a class="nav-link" target="_blank" href="/login">Presentes</a></li>
+						<!--<li><a href="/gerencialitl" target="_blank" class="nav-link" href="#story">Gerência</a></li>-->
 					</ul>
 				</div>
 			</div>
 		</nav>
+
+	<!--<audio controls autoplay="autoplay">
+		<source src="./musica/Elesseamam.mp3" type="audio/mpeg" autoplay="autoplay">
+		Seu navegador não suporta áudio tag.
+	</audio>-->
+
+	
+
 	</header>
 	<!-- End header -->
 
@@ -77,10 +90,10 @@
 		</ul>
 		<div class="lbox-details">
 			<h1>Lucas P. & Ilana G.</h1>
-			<h2>Nós vamos nos casar</h3>
+			<h2>Vamos nos casar</h3>
 				<div class="countdown main-time clearfix">
 					<div id="timer">
-						<h3>Dia: 23 Julho 2022</h3>
+						<h3>Dia: 10 Dezembro 2022</h3>
 						<div id="days"></div>
 						<div id="hours"></div>
 						<a href="/login" target="_blank"><div id="lista" style="cursor: pointer;"></div></a>
@@ -282,87 +295,6 @@
 
 	<!-- Start Family -->
 	<div id="family" class="family-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2>Família</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="single-team-member">
-						<div class="family-img">
-							<img class="img-fluid" src="images/family-01.jpg" alt="" />
-						</div>
-						<div class="family-info">
-							<h4>Mr. Alonso Wiles </h4>
-							<p>{ Leida’s Father }</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="single-team-member">
-						<div class="family-img">
-							<img class="img-fluid" src="images/family-02.jpg" alt="" />
-						</div>
-						<div class="family-info">
-							<h4>Mr. Evon Wiles </h4>
-							<p>{ Leida’s Mother }</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="single-team-member">
-						<div class="family-img">
-							<img class="img-fluid" src="images/family-03.jpg" alt="" />
-						</div>
-						<div class="family-info">
-							<h4>Mr. Chris Wiles </h4>
-							<p>{ Leida’s Brother }</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="single-team-member">
-						<div class="family-img">
-							<img class="img-fluid" src="images/family-04.jpg" alt="" />
-						</div>
-						<div class="family-info">
-							<h4>Mr. Adina Wiles </h4>
-							<p>{ Leida’s Sister }</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="single-team-member">
-						<div class="family-img">
-							<img class="img-fluid" src="images/family-05.jpg" alt="" />
-						</div>
-						<div class="family-info">
-							<h4>Mr. Annetta Wiles </h4>
-							<p>{ Leida’s Sister }</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="single-team-member">
-						<div class="family-img">
-							<img class="img-fluid" src="images/family-06.jpg" alt="" />
-						</div>
-						<div class="family-info">
-							<h4>Mr. Ladonna Wiles </h4>
-							<p>{ Leida’s Sister }</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Family -->
-
 	<!-- Start Gallery -->
 	<div id="gallery" class="gallery-box">
 		<div class="container">
@@ -429,115 +361,123 @@
 		</div>
 	</div>
 	<!-- End Gallery -->
+	</div>
+	<!-- End Family -->
+
+	<!-- Start Gallery -->
+	<div id="horario" class="gallery-box">
+		<div id="horario" >
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="title-box">
+							<h2>Horários</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						</div>
+					</div>
+				</div>
+	
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<div class="serviceBox">
+							<div class="service-icon"><i class="flaticon-bachelorette-party"></i></div>
+							<h3 class="title">Padrinhos </h3>
+							<h4>04 July 2017 at 7:30 pm</h4>
+							<p class="description">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur, deleniti
+								eaque excepturi.
+							</p>
+						</div>
+					</div>
+	
+					<div class="col-md-4 col-sm-6">
+						<div class="serviceBox">
+							<div class="service-icon"><i class="flaticon-wedding"></i></div>
+							<h3 class="title">Cerimônia Casamento</h3>
+							<h4>05 July 2017 at 9:30 pm</h4>
+							<p class="description">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur, deleniti
+								eaque excepturi.
+							</p>
+						</div>
+					</div>
+	
+					<div class="col-md-4 col-sm-6">
+						<div class="serviceBox">
+							<div class="service-icon"><i class="flaticon-reception-bell"></i></div>
+							<h3 class="title">Cerimônia de Recepção</h3>
+							<h4>06 July 2017 at 10:30 pm</h4>
+							<p class="description">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur, deleniti
+								eaque excepturi.
+							</p>
+						</div>
+					</div>
+				</div>
+	
+			</div>
+		</div>
+	
+		<!-- End Wedding -->
+	</div>
+	<!-- End Gallery -->
 
 	<!-- Start Wedding -->
 
 	<div id="wedding" class="wedding-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2>Convidados</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+		<div id="wedding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="title-box">
+							<h2>Localização</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-sm-12">
+						<div class="event-inner">
+							<div class="event-img">
+								<img class="img-fluid" src="images/event-img-01.jpg" alt="" />
+							</div>
+							<h2>2 June 2018 Engagement</h2>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+								been the industry's standard </p>
+							<a href="#">Ver Localização <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12">
+						<div class="event-inner">
+							<div class="event-img">
+								<img class="img-fluid" src="images/event-img-02.jpg" alt="" />
+							</div>
+							<h2>3 June 2018 Main Ceremony </h2>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+								been the industry's standard </p>
+							<a href="#">Como chegar <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12">
+						<div class="event-inner">
+							<div class="event-img">
+								<img class="img-fluid" src="images/event-img-03.jpg" alt="" />
+							</div>
+							<h2>4 June 2018 Wedding party </h2>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+								been the industry's standard </p>
+							<a href="#">Contato para ajuda <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="col-md-4 col-sm-6">
-					<div class="serviceBox">
-						<div class="service-icon"><i class="flaticon-bachelorette-party"></i></div>
-						<h3 class="title">Padrinhos </h3>
-						<h4>04 July 2017 at 7:30 pm</h4>
-						<p class="description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur, deleniti
-							eaque excepturi.
-						</p>
-					</div>
-				</div>
-
-				<div class="col-md-4 col-sm-6">
-					<div class="serviceBox">
-						<div class="service-icon"><i class="flaticon-wedding"></i></div>
-						<h3 class="title">Cerimônia Casamento</h3>
-						<h4>05 July 2017 at 9:30 pm</h4>
-						<p class="description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur, deleniti
-							eaque excepturi.
-						</p>
-					</div>
-				</div>
-
-				<div class="col-md-4 col-sm-6">
-					<div class="serviceBox">
-						<div class="service-icon"><i class="flaticon-reception-bell"></i></div>
-						<h3 class="title">Cerimônia de Recepção</h3>
-						<h4>06 July 2017 at 10:30 pm</h4>
-						<p class="description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur, deleniti
-							eaque excepturi.
-						</p>
-					</div>
-				</div>
-			</div>
-
 		</div>
 	</div>
 
 	<!-- End Wedding -->
 
-	<!-- Start Events -->
-	<div id="events" class="events-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2>Events</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="event-inner">
-						<div class="event-img">
-							<img class="img-fluid" src="images/event-img-01.jpg" alt="" />
-						</div>
-						<h2>2 June 2018 Engagement</h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the industry's standard </p>
-						<a href="#">See location <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="event-inner">
-						<div class="event-img">
-							<img class="img-fluid" src="images/event-img-02.jpg" alt="" />
-						</div>
-						<h2>3 June 2018 Main Ceremony </h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the industry's standard </p>
-						<a href="#">See location <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="event-inner">
-						<div class="event-img">
-							<img class="img-fluid" src="images/event-img-03.jpg" alt="" />
-						</div>
-						<h2>4 June 2018 Wedding party </h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the industry's standard </p>
-						<a href="#">See location <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Events -->
-
 	<!-- Start Contact -->
-	<div id="contact" class="contact-box">
+	<div id="horario" class="contact-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -555,14 +495,14 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<input type="text" class="form-control" id="name" name="name"
-											placeholder="Seu nome" required data-error="Please enter your name">
+											placeholder="Seu nome" autocomplete="off" required data-error="Por favor informe seu nome">
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<input type="text" placeholder="Seu Email" id="email" class="form-control"
-											name="name" required data-error="Please enter your email">
+											name="name" autocomplete="off" required data-error="Por favor informe seu e-mail">
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
@@ -588,11 +528,17 @@
 											<option value="1">Dia do Evento</option>
 											<option value="2">Hora do Evento</option>
 											<option value="3">Hora da Festa</option>
+											<option value="4">Local da Cerimônia</option>
 										</select>
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
 								<div class="col-md-12">
+									<div class="form-group">
+										<input class="form-control" id="message" placeholder="Whatsapp/Contato" rows="8"
+											data-error="Whatsapp/Contato" required>
+										<div class="help-block with-errors"></div>
+									</div>
 									<div class="form-group">
 										<textarea class="form-control" id="message" placeholder="Sua mensagem" rows="8"
 											data-error="Escreva sua mensagem" required></textarea>
@@ -619,7 +565,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<p class="footer-company-name">Todos os direitos reservados. &copy; 2022  Design
-						Por : <a href="https://github.com/Nepturne" target="_blank">Dev Lucas</a></p>
+						Por : <a href="https://github.com/Nepturne" target="_blank" style="color: white;">Noivo Lucas</a></p>
 				</div>
 			</div>
 		</div>
@@ -628,6 +574,19 @@
 
 	<!-- ALL JS FILES -->
 	<script src="js/jquery.min.js"></script>
+	<script>
+		audio = document.getElementById('audioCasamentoLucaseIlana');
+	   
+	   function play(){
+		   audio.play();              
+	   }
+	
+	   function pause(){
+		   audio.pause();      
+	   } 
+
+	 </script>
+
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<!-- ALL PLUGINS -->

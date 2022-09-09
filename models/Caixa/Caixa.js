@@ -14,6 +14,8 @@ const Caixa = connection.define("caixa", {
     defaultValue: 0,
     allowNull: false,
   },
+}, {
+  timestamps: false
 });
 
 // Criação da TB de acordo com a Definição da Tabela no Model com:

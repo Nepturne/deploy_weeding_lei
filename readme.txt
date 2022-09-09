@@ -15,4 +15,7 @@ Criar banco de dados - Sequelize - Models
  ------------------------------------------------------
  Fim.
 
+
+npm start -> Executa o projeto na porta 4000
  
+ngrok http 4000 -> Sobe o ngrok para o link externo

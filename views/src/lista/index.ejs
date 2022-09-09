@@ -23,7 +23,7 @@
                 <div>                      
                     <a href="/listadepresentes"><img class="dropdown" src="images/logouser.png" style="width:45px; height:45px;" alt="logo"></a>
                 </div>
-                <a href="/logout"><img src="images/exit.png" style="width:45px; height:45px; position:absolute; top:15px; left: 175px; cursor:pointer;"  alt=""></a>
+                <a href="/logout"><img src="images/exit.png" style="width:45px; height:45px; position:absolute; top:15px; left: 265px; cursor:pointer;"  alt=""></a>
                 <h3 style="display: none;">Tipo de Convite: Convidado</h3>
                 <h3>Seja bem vindo a nossa lista de presentes, <%= nome %> !</h3>
                 <h1 style="color:rgb(194, 46, 46); ">Lista de Presentes - L&I <i class="fa fa-heart-o"
@@ -67,9 +67,9 @@
                     <div class="item-detail">
                         <a href="#" class="item-name"><%= presente.nome_produto %></h2></a>
                         <div class="item-price">
-                            <span class="new-price"><%= presente.valor_produto %>,00 R$</span>
-                            <span class="old-price"><%= presente.valor_traco %>,00 R$</span><br />
-                            <span class="rest-price">Falta: <%= presente.falta %>,00 R$</span>
+                            <span class="new-price"><%= presente.falta %> R$</span>
+                            <!--<span class="old-price"><%= presente.valor_traco %> R$</span><br />-->
+                            <span class="rest-price">Falta: <%= presente.falta %> R$</span>
                         </div>
                         <p><%= presente.descricao %></p>
                         <!--<a href="/payment/user"><button type = "button" class = "add-btn">Selecionar</button></a>-->
@@ -92,7 +92,7 @@
                         <a href="#" class="item-name">Doação Avulsa</a>
                         <div class="item-price">
                             <span class="new-price">Doação L&I</span>
-                            <span class="rest-price">O valor que quiser</span>
+                            <span class="rest-price">Contribuição Livre</span>
                         </div>
                         <p>O valor que quiser doar ficamos agredecidos</p>
         
@@ -108,7 +108,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" style="color:rgb(194, 46, 46); "><p><i class="fa fa-heart-o"
-                                    aria-hidden="true"></i> Você faz parte dessa história!<br><text style="font-size: small;">Por favor após efetuar o pagamento clique em salvar contribuição.</text><br> <text style="font-size: small;">É possível pagar o valor inteiro ou metade do valor do presente</text> </p></h5>
+                                    aria-hidden="true"></i> Meu carrinho<br><text style="font-size: small;">Por favor após efetuar o pagamento clique em salvar contribuição.</text><br> <text style="font-size: small;">É possível pagar o valor inteiro ou metade do valor do presente</text> </p></h5>
                                
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -170,7 +170,7 @@
                                                             <div class="px-5 pay"> <a
                                                                     href="https://nubank.com.br/pagar/lrwkh/znairXqY0F"
                                                                     target="_blank" onClick="alerta()"> <button disabled id="pag_button<%= presente.id %>"
-                                                                        class="btn btn-info btn-block">Pagar</button></a>
+                                                                        class="btn btn-info btn-block">Presentear</button></a>
                                                             </div>
                                                         </div>
 
@@ -284,7 +284,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" style="color:rgb(194, 46, 46); "><p><i class="fa fa-heart-o"
-                                    aria-hidden="true"></i> Você faz parte dessa história!<br><text style="font-size: small;">Por favor após efetuar o pagamento clique em salvar contribuição.</text><br> <text style="font-size: small;">É possível pagar o valor inteiro ou metade do valor do presente</text> </p></h5>
+                                    aria-hidden="true"></i> Meu carrinho <br><text style="font-size: small;">Após presentear clique em salvar contribuição.</text><br> <text style="font-size: small;"></text> </p></h5>
                                
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -332,7 +332,7 @@
                                                         <div class="px-5 pay"> <a
                                                                 href="https://nubank.com.br/pagar/lrwkh/znairXqY0F"
                                                                 target="_blank"><button  id="pag_button"
-                                                                    class="btn btn-info btn-block">Pagar</button></a>
+                                                                    class="btn btn-info btn-block">Presentear</button></a>
                                                         </div>
                                                     </div>
 
