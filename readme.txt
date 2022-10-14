@@ -6,7 +6,7 @@ Colocar nos convites os códigos para o pessoal acessar
 
  Fazer a função de Boleto
  Pix - Funcionando 
-Criar banco de dados - Sequelize - Models 
+ Criar banco de dados - Sequelize - Models 
  Fazer Cadastro de Convidados
  Fazer Cadastro de Padrinhos
  Fazer Cadastro de Produtos

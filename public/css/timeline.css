@@ -2300,7 +2300,7 @@
 	z-index: 999;
 	top: -10px;
 	left: 20px;
-	background-color: rgba(139, 0, 0, 0.8);
+	background-color: rgba(139, 0, 0, 0.8); 
 	color: white;
 	box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5); 
 }

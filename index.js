@@ -9,14 +9,12 @@ app.use(session({secret:'3s@dgsdg5r@335735@-@p-@;cazs@a*-+asz@'}));
 // Uploads
 const multer               = require("multer");
 const storage              = multer.diskStorage({
-  
   destination: (req, file, cb) => {
     cb(null, 'public/images/listadepresentes/')
   },
   filename: (req, file , cb) => {
     cb(null, file.originalname)
   }
-
 });
 const upload               = multer({ storage });
 // PORTA===========================================================================================
@@ -73,26 +71,55 @@ app.get("/login" ,(req,res) => {
    res.render('src/login/login.ejs');
 });
 
+
 app.post("/authenticate" ,(req,res) => {
   const grau       = req.body.parentesco;
   const codigo     = req.body.codigo;
   const nome       = req.body.nome;
   const telefone   = req.body.telefone;
+  const padrinho   = req.body.padrinho;
+
+  if(padrinho == "Bruna e Bruno"){
+    var foto = "brunabruno.jpeg";
+  }
+  else if(padrinho == "Rosana e Alysson"){
+    var foto = "alysson.jpeg";
+  }
+  else if(padrinho == "Thaís e Eber"){
+    var foto = "eber.jpeg";
+  }
+  else if(padrinho == "Inay e Jadiel"){
+    var foto = "inayjadiel.jpeg";
+  }
+  else if(padrinho == "Ingrid e Jardel"){
+    var foto = "ingrdjardel.jpeg";
+  }
+  else if(padrinho == "Vanessa e Léo"){
+    var foto = "leovanessa.jpeg";
+  }
+  else if(padrinho == "Neila e Júlio"){
+    var foto = "juliocezar.jpeg";
+  }
+  else{
+    res.redirect("/login");
+  }
+
+
 
   // Caso seja padrinho: CODPALUEI
   if (grau === 'Padrinho' && codigo === 'CODPALUEI') {
     const data = [{
-      grau : grau,
-      nome: nome,
-      tel: telefone
+      padrinho: padrinho,
+      tel: telefone,
+      foto: foto,
     }];
 
     req.session.geral = data;
 
     res.render('src/padrinhos/index.ejs',{
-      grau: grau,
-      nome: nome,
-      tel: telefone
+      padrinho: padrinho,
+      tel: telefone,
+      foto: foto
     });
   }
   // Se for padrinho abriremos uma página com dados específicos para
@@ -126,6 +153,10 @@ app.post("/authenticate" ,(req,res) => {
     res.redirect('/login');
   }
 
+});
+
+app.get("/pageex" ,(req,res) => {
+  res.render('src/padrinhos/groom-bride.ejs');
 });
 
 app.get("/listadepresentes" ,(req,res) => {

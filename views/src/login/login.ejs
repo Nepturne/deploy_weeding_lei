@@ -33,9 +33,21 @@
                             <option value="Convidado">Convidado</option>
                             <option value="Padrinho">Padrinho</option>
                         </select>
+                       
+                        <select  name="padrinho" id="Padrinhos" required data-error="Selecione o casal de padrinhos corretamente">
+                            <option disabled>Queridos Padrinhos:</option>
+                            <option value="Rosana e Alysson">Rosana e Alysson</option>
+                            <option value="Bruna e Bruno">Bruna e Bruno</option>
+                            <option value="Thaís e Eber">Thaís e Eber</option>
+                            <option value="Inay e Jadiel">Inay e Jadiel</option>
+                            <option value="Ingrid e Jardel">Ingrid e Jardel</option>
+                            <option value="Vanessa e Léo">Vanessa e Léo</option>
+                            <option value="Neila e Júlio">Neila e Júlio</option>
+                        </select>
+
                         <input name="codigo" type="hidden" placeholder="Código de Acesso" id="tipoApply" value="CONVLEI" required>
-                        <input name="nome" type="text" placeholder="Digite seu nome" autocomplete="off" required>
-                        <input name="telefone" type="text" class="telefone" placeholder="Digite seu telefone / Whatsapp" required>
+                        <input name="nome" type="text" placeholder="Digite seu nome" autocomplete="off" id="named" required>
+                        <input name="telefone" autocomplete="off" type="text" class="telefone" placeholder="Digite seu telefone / Whatsapp" required>
                         <button class="btn-login" type="submit">Acessar</button>
                         <!--<button class="btn-new">Esqueci o código</button>-->
                     </div>
@@ -65,14 +77,19 @@
             }  
         });
 
+    $("#Padrinhos").hide();
     $('#tipoUser').change(function() {
         var option = $('#tipoUser').find(":selected").text();
         if( option == "Padrinho")
         {
+            $("#Padrinhos").show();
+            $('#named').hide().removeAttr("required");;
             $("#tipoApply").val('CODPALUEI');
         }
         else if ( option == "Convidado")
         {
+            $("#Padrinhos").hide();
+            $('#named').show();
             $("#tipoApply").val('CONVLEI');
         }
     });
