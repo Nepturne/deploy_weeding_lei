@@ -35,6 +35,6 @@ const Contribuinte = connection.define("contribuinte", {
 });
 
 // Criação da TB de acordo com a Definição da Tabela no Model com:
-//Contribuinte.sync({ force: true });
+Contribuinte.sync({ force: true });
 
 module.exports = Contribuinte;

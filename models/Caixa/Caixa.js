@@ -19,7 +19,7 @@ const Caixa = connection.define("caixa", {
 });
 
 // Criação da TB de acordo com a Definição da Tabela no Model com:
-//Caixa.sync({ force: true });
+Caixa.sync({ force: true });
 
 module.exports = Caixa;
 
