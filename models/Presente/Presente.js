@@ -37,6 +37,6 @@ const Presente = connection.define("presente", {
 });
 
 // Criação da TB de acordo com a Definição da Tabela no Model com:
-Presente.sync({ force: true });
+//Presente.sync({ force: true });
 
 module.exports = Presente;

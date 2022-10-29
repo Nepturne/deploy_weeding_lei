@@ -38,7 +38,7 @@ const Arrecadacoes = connection.define("arrecadacoes", {
 });
 
 // Criação da TB de acordo com a Definição da Tabela no Model com:
-Arrecadacoes.sync({ force: true });
+//Arrecadacoes.sync({ force: true });
 
 module.exports = Arrecadacoes;
 
