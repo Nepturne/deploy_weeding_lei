@@ -18,7 +18,7 @@ const storage              = multer.diskStorage({
 });
 const upload               = multer({ storage });
 // PORTA===========================================================================================
-const PORT                 = 4000 || null;
+const PORT                 = process.env.PORT || 4000;
 
 // Models [Represent for Tables] - Da aplicação:---------------------------------------------------
 const Contribuinte = require("./models/Contribuinte/Contribuinte.js");
@@ -254,7 +254,7 @@ app.post("/authenticateadmin" ,(req,res) => {
   const login = req.body.login;
   const pass  = req.body.pass;
 
-  if (login === 'admin' && pass === 'admin') {
+  if (login === 'admin' && pass === 'ilanaelucas987') {
     Caixa.findOne({
       where: { id: 1 },
     }).then((caixa) => {
@@ -370,6 +370,6 @@ app.listen(PORT, (error) => {
     if (error) {
       console.log("App não foi iniciado corretamente!");
     } else {
-      console.log(`Aplicação rodando na porta localhost://${PORT}`);
+      console.log(`Aplicação rodando na porta ${PORT}`);
     }
 });
