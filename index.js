@@ -18,7 +18,7 @@ const storage              = multer.diskStorage({
 });
 const upload               = multer({ storage });
 // PORTA===========================================================================================
-const PORT                 = process.env.PORT || 4000;
+const PORT                 = process.env.PORT || 5000;
 
 // Models [Represent for Tables] - Da aplicação:---------------------------------------------------
 const Contribuinte = require("./models/Contribuinte/Contribuinte.js");
